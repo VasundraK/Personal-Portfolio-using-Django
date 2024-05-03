@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Meyawo landing page.">
+    <meta name="author" content="Devcrud">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="{% static 'personal/vendors/themify-icons/css/themify-icons.css' %}"> 
+    <link rel="stylesheet" href="{% static 'personal/css/meyawo.css' %}">  
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">About</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#education">Education</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#Skills">Skills</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#smarteye">Projects</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav>
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content container">
+            <h1 class="header-title">
+                <span class="up">HI!</span>
+                <span class="down">I'm Vasundra</span>
+            </h1>
+            <p class="header-subtitle">ASPIRING WEB DEVELOPER</p>
+        </div>
+    </header>
+    <section class="section pt-0" id="about"> 
+        <div class="container text-center">
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="{% static 'personal/imgs/myself.jpg' %}" class="modify-image" alt="My image" width="180px" height="180px">
+                </div>
+                <div class="about-caption">            
+                    <h2 class="section-title mb-3">About Me</h2>
+                    <p>
+                        As an IT enthusiast, my journey into the world of technology led me to develop a profound interest in web development. Driven by curiosity and a passion for learning, I embarked on the path of Full Stack development.
+With a keen focus on problem-solving, I have honed strong analytical skills that allow me to approach challenges methodically. As a hardworking and self-motivated individual, I am dedicated to continuous learning of the latest trends in the dynamic field of web development.
+Eager and excited to contribute to the growth of the community, I actively seek opportunities to collaborate with like-minded professionals and share knowledge. 
+                    </p>
+                    <button class="btn-rounded btn btn-outline-primary mt-4" onclick="downloadDocument()">View CV</button>
+                    <script>
+                        function downloadDocument() {          
+                            const documentUrl = "{% static 'personal/Resume.pdf' %}"; 
+                            window.location.href = documentUrl;
+
+                            
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section> 
+<section class="section" id="education">
+    <div class="container text-center">      
+        <h6 class="section-title mb-6">Education</h6>      
+        <div class="blog-card">        
+            <div class="blog-card-body">            
+                <img src="{% static 'personal/imgs/college.png' %}" alt="College icon" width="40px" height="40px"><h5 class="blog-card-title">B Tech in Information Technology</h6>
+                    <p><b>Coimbatore Institute of Technology, Civil Aerodrome Post, Coimbatore</b></p>
+                    <p>Expected Graduation: May 2025</p><br>
+                    <img src="{% static 'personal//imgs/school.png' %}" alt="School icon" width="40px" height="40px"><h5 class="blog-card-title">Higher Secondary Education</h6>
+                    <p><b>P.S.G.R Krishnammal Higher Secondary School for Girls, Peelamedu, Coimbatore</b></p>
+                    <p>Completion year: 2021</p>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="section" id="Skills">
+        <div class="container text-center">
+            <h6 class="section-title mb-6">Skills</h6>
+        </div>
+    <div class="container" id="nearby">
+            <fieldset>
+                <h6 class="section-title mb-6" style="font-size: 20px;">Programming Language</h6>
+                <ul>
+                    <li>Python-Excellent</li><br>
+                    <li>Java-Good</li><br>
+                    <li>C-Good</li>
+                </ul>             
+            </fieldset>
+            <fieldset>
+            <center><h6 class="section-title mb-6" style="font-size: 20px;">Web frameworks</h6></center>
+                <ul>
+                    <li>Django</li><br>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <center><h6 class="section-title mb-6" style="font-size: 20px;">Soft Skills</h6></center>
+                <ul>
+                    <li>Adaptability</li><br>
+                    <li>Resilience</li><br>
+                    <li>Openness to Feedback</li><br>
+                </ul>
+            </fieldset>
+        </div>
+    </section> 
+    <section class="section" id="smarteye">   
+        <div class="container text-center">   
+            <h6 class="section-title mb-6" >Projects</h6>
+            <div class="blog-card">    
+                <div class="blog-card-body">
+                    {% for i in data %}
+                        <h5 class="blog-card-title">{{ i.name }}</h5>
+                        <p>{{ i.description }}</p><br><br>
+                    {% endfor %}
+                </div>
+            </div>
+    </section>
+    {}
+<section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you communicate?</p>
+            <h6 class="section-title mb-5">Contact Me</h6>
+            <p><img src="{% static 'personal/imgs/phone.png' %}" width="30px" height="30px"><a href="tel:+919361616530">+91 (9361) 616-530  </a>
+                <a href="https://www.linkedin.com/in/vasundra-k-716478265/">
+                    <img src="{% static 'personal/imgs/linkedln.png' %}" alt="Linkedln Icon" height="30px" width="30px">  Linkedln
+                </a>
+                <a href="mailto:vasundrak2004@gmail.com">
+                    <img src="{% static 'personal/imgs/email.jpg' %}" alt="Email Icon" height="40px" width="40px">Email
+                </a>
+                <a href="https://github.com/VasundraK">
+                    <img src="{% static 'personal/imgs/github.png' %}" alt="Github Icon" height="25px" width="25px">Github
+                </a>
+            </p><br>
+        </div>
+    </section>
+    <script src="{% static 'personal/vendors/jquery/jquery-3.4.1.js' %}"></script>
+    <script src="{% static 'personal/vendors/bootstrap/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'personal/vendors/bootstrap/bootstrap.affix.js' %}"></script>
+    <script src="{% static 'personal/js/meyawo.js' %}"></script>
+</body>
+</html>
